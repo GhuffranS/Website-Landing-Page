@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Work Sans", sans-serif;
+  
+  --color-primary: #005279;
+  --color-accent: #f9c349;
+  --color-accent-hover: #ffb100;
+  --color-slate-900: #0f172a;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-600 bg-[#f8f7f3];
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-slate-900;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-white to-[#fc0];
+}
+
+.glass-header {
+  @apply bg-black/40 backdrop-blur-md border-b border-white/15;
+}
+
+.glass-wa-btn {
+  @apply bg-white/10 backdrop-blur-xs border border-white/30 hover:bg-white/20 transition-all;
+}
+
+.solar-trust-pill {
+  @apply inline-flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-5 py-2;
+}
