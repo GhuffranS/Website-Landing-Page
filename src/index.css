@@ -6,27 +6,29 @@
   --font-display: "Work Sans", sans-serif;
   
   --color-primary: #005279;
-  --color-accent: #f9c349;
-  --color-accent-hover: #ffb100;
+  --color-accent: #FFCC00;
+  --color-accent-hover: #E6B800;
+  --color-bg-warm: #F7F6F2;
+  --color-charcoal: #1A2A35;
   --color-slate-900: #0f172a;
 }
 
 @layer base {
   body {
-    @apply font-sans text-slate-600 bg-[#f8f7f3];
+    @apply font-sans text-charcoal bg-bg-warm;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold text-slate-900;
+    @apply font-display font-semibold text-charcoal;
   }
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-linear-to-r from-white to-[#fc0];
+  @apply bg-clip-text text-transparent bg-linear-to-r from-white to-accent;
 }
 
 .glass-header {
-  @apply bg-black/40 backdrop-blur-md border-b border-white/15;
+  @apply bg-charcoal/80 backdrop-blur-md border-b border-white/10;
 }
 
 .glass-wa-btn {
@@ -34,5 +36,52 @@
 }
 
 .solar-trust-pill {
-  @apply inline-flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-5 py-2;
+  @apply inline-flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-4 py-1.5;
+}
+
+/* Custom range slider styling */
+input[type='range']::-webkit-slider-thumb {
+  @apply appearance-none w-6 h-6 bg-accent rounded-full border-4 border-primary cursor-pointer shadow-lg;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes sun-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes chip-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes energy-flow {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-sun-rays {
+  animation: sun-rotate 12s linear infinite;
+  transform-origin: center;
+}
+
+.animate-chip-float {
+  animation: chip-float 3s ease-in-out infinite;
+}
+
+.animate-energy-flow {
+  stroke-dasharray: 4 4;
+  animation: energy-flow 1.5s linear infinite;
 }
